@@ -55,7 +55,13 @@ $ sudo locale-gen en_US.UTF-8
 ### List the important files in the generated build/conf directory?
 > After running the script oe-init-buil-env the follwoing files gets generated  
 > bblayers.conf: contains the essintial layers for an image  
-> local.conf: contains some important global variables for the board configuration (i.e. MACHINE)
+> local.conf: contains some important global variables for the board configuration (i.e. MACHINE)  
+> build/tmp/log/cooker/consol.log: this file contains the last build consol output  
+> work directory: each recipe or package has its own directory, and each directory shall be considered as sysroot (I mean it has it folder structure besides it contains sysroot inside), and IMPORTANT to know that the log-logs and run-logs:
+>> log.task_ordere: shows the order of the tasks that has run.
+>> log.do_patch: log of the patching task
+>> log.do_compile: log of the compilation
+>> run.do_compile: list the executed python and bash commands used in the compile task
 
 @@@ TODO @@@
 Editor setup install packges:
