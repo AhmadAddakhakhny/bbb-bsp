@@ -2,14 +2,15 @@
 > via OpenEmbedded layer index forum "https://layers.openembedded.org/layerindex/branch/master/layers/"  
 > git clone <layer_name> -b <branch_name>
 ### Q1. Why Layers?
-> The layer concept in Yocto is crucial for maintaining a clean, customizable, and scalable embedded Linux build system. By using layers, you can manage complexity, share configurations, and ensure that your system is flexible for multiple hardware platforms and software packages.
+> The layer concept in Yocto is crucial for maintaining a clean, customizable, and scalable embedded Linux build system. By using layers, you can manage complexity, share configurations, and ensure that your system is flexible for multiple hardware platforms and software packages.  
+> also we can say many recipes were developed by the community and I want to reuse it, so I have to use the layer the composes this recipe.  
 
 ### Q2. How to know the layers direcories?
 > the start with meta* prefix
 
 ### what is the purpose of Append to recipes files .bblayer
-> specify additional steps
-> highiest priority recipe takes place over the lowiest proirity
+> specify additional steps, or extend some task like do_compile and do_install ..etc.
+> ex: the order of executing the do_compile if it has been extended/appended from many layers, the do_compile in the very low layer start executing then the upperlayer until the most uppper layer do_compile:append. (note: no overwrite, just append)  
 > note: keep in the upper layer, the same lawer layer structure of the path of the recipe-file
 
 ### How does a layer would look like?
@@ -24,12 +25,12 @@
 > Extend the global variable **BBLAYERS** with the layer path where located at build/conf/bblayers.conf
 
 ### Show layers category?
-> OpenEmbedded Core Metadata (oe-core)  
+> OpenEmbedded Core Metadata (oe-core) - The lowest Priority  
 > Yocto Layer Metadata (meta-yocto)  
-> Hardware specific BSP  
-> UI - Optional Layer  
-> Commercial Layer  
-> Developers-Specific Layer  
+> Hardware specific BSP (i.e nxp)  
+> UI - Optional Layer (i.e. xfc, nome)  
+> Commercial Layer (i.e. qt)  
+> Developers-Specific Layer (i.e application) - The highest Priority  
 > Remark: We modify our own layers only (Developers-Specific Layer), this is a good practice.
 
 ### How to get a recipe implemented by the community?
@@ -96,4 +97,7 @@
 ### What are the options to change the variables of local.conf?
 > 1. change it in the same file  
 > 2. change it in your own layer
+
+### Are all packages being installed in the image?
+> some times a package requires dependencies, so its dependencies would be downloaded and to be able to compile the requried package, and this package only shall be installed in the image without all the dependencies.
 
