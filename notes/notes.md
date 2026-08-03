@@ -11,3 +11,4 @@ unset TEMPLATECONF
 ### 3. project naming convention to suite several boards
 ### 4. abstract way to append the layers
 ### 5. define different machines for build
+### 6. what is a dynamic layer, how to deal with it and write a task for it (BBFILES_DYNAMIC)
