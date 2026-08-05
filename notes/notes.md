@@ -12,3 +12,4 @@ unset TEMPLATECONF
 ### 4. abstract way to append the layers
 ### 5. define different machines for build
 ### 6. what is a dynamic layer, how to deal with it and write a task for it (BBFILES_DYNAMIC)
+### 7. integrate ssh, test on hardware serial consol.
