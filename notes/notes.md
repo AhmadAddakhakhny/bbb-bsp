@@ -13,3 +13,4 @@ unset TEMPLATECONF
 ### 5. define different machines for build
 ### 6. what is a dynamic layer, how to deal with it and write a task for it (BBFILES_DYNAMIC)
 ### 7. integrate ssh, test on hardware serial consol.
+### 8. Download and extract the lab archive
