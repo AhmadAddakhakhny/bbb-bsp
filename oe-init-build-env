@@ -1,0 +1,5 @@
+#!/bin/bash
+
+BSP_ROOT=$(pwd)
+TEMPLATECONF="${BSP_ROOT}/meta-bsp-workbench/conf/templates/default/"
+. "${BSP_ROOT}/poky/oe-init-build-env" "$1"
